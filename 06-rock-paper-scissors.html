@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+
+    <p>Rock Paper Scissors</p>
+    <!-- Step 1, make buttons active -->
+    <!-- Step 2 use Math.random() for a random num between 0 and 1 (!! that random number is > 0 and < 1 )
+      step 2.1:
+        we divide that 0-1 scale into 3 parts, that represents "rock", "paper" and "scissors":
+          -if between 0 and 1/3 = rock;
+          -if between 0 and 2/3 = paper;
+          -if between 0 and 1 = scissors;
+    -->
+    <button onclick=" // Step 1 from here to ... -->>
+        const randomNum = (Math.random());
+
+        let computerMove = '';
+        
+        if (randomNum >= 0 && randomNum < 1 / 3) {
+          computerMove = 'rock';
+        } else if (randomNum >= 1 / 3 && randomNum < 2 / 3) {
+          computerMove = 'paper';
+        } else if (randomNum >= 2 / 3 && randomNum < 1) {
+          computerMove = 'scissors';
+        } // ... here. <<--
+
+        let result = ''; // Step 2 from here to ... -->>
+
+        if (computerMove === 'rock') {
+          result = 'Tie.';
+        } else if (computerMove === 'paper') {
+          result = 'You lost!';
+        } else if (computerMove === 'scissors') {
+          result = 'You won!';
+        } // ... here. <<--
+
+        alert(`You picked rock. Computer picked ${computerMove}. ${result}`); // <<-- Step 3
+    ">Rock
+    </button>
+    
+    <button onclick="
+        const randomNum = (Math.random());
+
+        let computerMove = '';
+        
+        if (randomNum >= 0 && randomNum < 1 / 3) {
+            computerMove = 'rock';
+        } else if (randomNum >= 1 / 3 && randomNum < 2 / 3) {
+           computerMove = 'paper';
+        } else if (randomNum >= 2 / 3 && randomNum < 1) {
+            computerMove = 'scissors';
+            // var randomNum = 0.5 <- This will conflict with const randomNum from under 'onclick', even tho this var variable it's inside the {...}, it's because 'Var' it's a global variable and that's why we don't use it anymore
+        }
+
+        console.log(computerMove); /* We get uncaught referenceError because computerMove it's not defined, because of the Scope, it's only available INSIDE of If Statement;
+         - also, we use console.log here only for helping us debug if something is wrong, we don't need it for code to work;
+         - So, we create variable 'computerMove' outside the curly bracket.
+        */
+
+        /*
+        - Thill now we generated a random number using (Math.random)
+        - We converted it into a computerMove ('rock', 'paper' or 'scissors')
+        */
+
+        //Now let's compare the computerMove with what WE chose:  code down below ->
+        let result = '';
+        
+        if (computerMove === 'paper') {
+          result = 'Tie.';
+        } else if (computerMove === 'rock') {
+          result = 'You won!';
+        } else if (computerMove === 'scissors') {
+          result = 'You lost!';
+        }
+
+        // Now, we create a popup for the result 
+        alert(`You picked paper. Computer picked ${computerMove}. ${result}`);
+    ">Paper
+    </button>
+
+    <button onclick="
+        const randomNum = (Math.random());
+
+        let computerMove = ''; //String will be completed automatically after running the code in if-statement
+        
+        if (randomNum >= 0 && randomNum < 1 / 3) {
+          computerMove = 'rock';
+        } else if (randomNum >= 1 / 3 && randomNum < 2 / 3) {
+          computerMove = 'paper';
+        } else if (randomNum >= 2 / 3 && randomNum < 1) {
+          computerMove = 'scissors';
+        }
+
+        let result = ''; //String will be automatically completed after running the code in if-statement
+
+        if (computerMove === 'scissors') {
+          result = 'Tie.';
+        } else if (computerMove ==='rock') {
+          result = 'You lost!';
+        } else if (computerMove ==='paper') {
+          result - 'You won!';
+        }
+
+        alert(`You picked scissors. Computer picked ${computerMove}. ${result}`);
+    ">Scissors
+    </button>
+
+    <script>
+      /*
+        Strategy for JavaScript:
+          1. Think about what steps we need
+          2. Convert those steps into code
+      */ 
+
+      /*
+      Steps: <- This is called an algorithm (a set of steps in completing a task)
+       #When we click a button:
+          1. Computer randomly selects a move.
+          2. Compare the moves to get the result
+          3. Display the result in a popup
+      */
+
+      // Scope - Any variable we create inside {...} will ONLY exist inside the {...}
+      //       - help us avoiding naming conflicts
+    </script>
+  </body>
+</html>

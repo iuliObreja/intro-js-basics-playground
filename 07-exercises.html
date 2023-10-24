@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07-exercises</title>
+</head>
+<body>
+  <script>
+    //Ex 1 ----------
+    
+    /*function greet(name) {
+      !name ? console.log('Hi, there!') : console.log(`Hello, ${name}!`);
+      }
+     */
+
+    const greet = (name) => !name ? console.log('Hi, there!') : console.log(`Hello, ${name}!`);
+
+    greet('iuly');
+    greet();
+
+
+    //Ex 2 -------- 
+      //A:
+      function convertToFahrenheit(temp) {
+          return (temp * 9 / 5) + 32;
+        }
+
+      //B:
+      function convertToCelsius(temp) {
+        return (temp - 32) * 5 / 9;
+      }
+
+      //C:
+      function convertTemperature(degrees, unit) {
+        if (unit === 'C') {
+          const result = convertToFahrenheit(degrees);
+          return `${result} F`;
+        } else if (unit === 'F') {
+          const result = convertToCelsius(degrees);
+          return `${result} C`;
+        } else {
+          console.log('Please select the correct conversion symbol');
+        }
+      }
+
+      console.log(convertTemperature(39, 'C'));
+
+
+  </script>
+</body>
+</html>

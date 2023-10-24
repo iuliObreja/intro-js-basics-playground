@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+  </head>
+  <body>
+
+    <button>hello</button>
+    <button class="js-button">Second button</button>
+
+    <script>
+      console.log(document.querySelector('button').innerHTML);
+      document.querySelector('button')
+        .innerHTML = 'Changed';
+      
+      const buttonElement = (document.querySelector('.js-button'));
+      console.log(buttonElement);
+      
+      
+      /*
+      console.log(document.title);
+      document.title = 'Changed';
+
+      console.log(document.body);
+      console.log(typeof document.body);
+
+      console.log(document.body.innerHTML);
+      document.body.innerHTML = '<button>Good Job!</button>';
+
+      //method = function saved inside an object;
+      document.querySelector()
+      */
+      
+      /*
+      document.body.innerHTML = 'hello';
+      document.title = 'Good Job!';
+      */
+
+      //This document object, represents / model the webpage,
+      // that's why we call it "Document Object Model (DOM)"
+
+      //Syntax rules for DOM:
+       // document = built-in (document) object;
+       //.body/.title/.etc = properties accesed by dot notation;
+       //.querySelector()/.etc = methods accesed by dot notation;
+       // it's linked to the webpage
+
+      //document.body = let's us select any element inside BODY;
+      //document.querySelector = let's us select any element from the PAGE;
+
+      //html elements accesed by DOM, are JS objects and JS objects are values, so we can save it inside a variable
+
+      //DOM combines JS and HTML together;
+    </script>
+  </body>
+</html>

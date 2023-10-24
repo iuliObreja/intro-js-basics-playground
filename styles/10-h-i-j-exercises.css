@@ -1,0 +1,47 @@
+
+body {
+  font-family: Arial;
+}
+
+.subscribe-button {
+  border: none;
+  background-color: #222;
+  color: #fff;
+  padding: 10px 15px;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.is-subscribed {
+  background-color: rgb(240, 240, 240);
+  color: #222;
+}
+
+.cost-input {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px;
+  background-color: #fff;
+  outline-color: rgb(240, 240, 240);
+}
+
+.calculate-button {
+  background-color: #008000;
+  color: #fff;
+  border: none;
+  padding: 12px 15px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.total-cost {
+  font-weight: bold;
+}
+
+.error-message {
+  color: red;
+  font-weight: 700;
+}
+ 

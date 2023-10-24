@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises --Boolean and if-statements</title>
+  </head>
+  <body>
+    
+    <script>
+
+      // Exercise 1: Display a message accordingly to current time
+      const date = new Date();
+      const hour = date.getHours();
+      const minutes = date.getMinutes();
+      const formattedMinutes = String(minutes).padStart(2, '0');
+      const currentTime = `${hour.toString().padStart(2, '0')}:${formattedMinutes}`;
+      const name = 'Iuly';
+
+      if (hour >= 6 && hour <= 12) {
+        console.log(`Good morning, ${name}!`);
+        console.log(`The Time is ${currentTime}`);
+      } else if (hour > 12 && hour <= 17) {
+        console.log(`Good afternoon, ${name}!`);
+        console.log(`The Time is ${currentTime}`);
+      } else if (hour > 17 && hour <= 23) {
+        console.log(`Good evening, ${name}!`);
+        console.log(`The Time is ${currentTime}`);
+      } else {
+        console.log(`Good super-morning, ${name}!`);
+        console.log(`The Time is ${currentTime}`);
+      }
+
+      // Exercise 2: Display a message accordingly to certain age and if it's holiday or not
+
+      const age = 4;
+      const isHoliday = true;
+
+      if ((age <= 6 && isHoliday === false) || (age >= 65 && isHoliday === false)) {
+        console.log('We have a discount for you!');
+      } else {
+        console.log('Sorry, you have no discount!');
+      }
+
+      // Exercise 3: Heads or tails
+
+      const num = Math.random();
+      console.log(num);
+      let result = '';
+      let guess = prompt('Heads or Tails?', 'heads');
+      
+      num < 0.5 ? result = 'heads' : result = 'tails';
+      guess === result ? console.log('You won!!') : console.log('You lost!');
+      
+    </script>
+
+  </body>
+</html>

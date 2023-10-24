@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+  </head>
+  <body>
+    <script>
+      // what is a variable ?
+      // variable = container that storage info that can be used later
+      
+      //Assigning a value to a variable
+      const variable1 = 3; 
+      //let = variable, "variable" = name of the variable and "3" = value of the variable"
+      console.log(variable1);
+
+      const calculation = 2 + 2; //we changed from "let" to "const" because it will not change;
+      console.log(calculation); // 4
+      console.log(calculation + 2); // 6
+
+      let result = calculation + 2;
+      console.log(result); // 6
+
+      const message = 'hello'; //we changed from "let" to "const", because it will not change;
+
+      // !! Important - in naming variables we can only use this special characters, if we want: $name and _name
+
+      // !! The semicolon means: "This is the end of an instruction", like the DOT in real life, represents the end of the sentence.
+
+      //Ex: 
+      console.log(message); console.log(';'); // But is bad practice to write code like this, in a single line
+      //Ex2:
+      console.log(message); console.log(';') // JavaScript insert automatically the last semicolon in a LINE of code, so the code will run just fine, BUT it can instert it in the wrong place tho and end up in error, so, it's BEST Practice to write it manually
+
+      //Assigning a value to a variable:
+      let variable3 = 3;
+      console.log(variable3); 
+      //RE-assing a value to a variable:
+      variable3 = 5;
+      console.log(variable3);
+
+      //We can use a variable inside a calculation and increase its value by a number
+      variable3 = variable3 + 1;
+      console.log(variable1);
+
+
+      /*
+      We can create variables in 3 different ways:
+        1. let variableName = value (we can change it's value later)
+        2. const variableName = value (we can't change it's value later)
+                 - for safer and easier to understand and we know for sure that value will not change;
+                 - use "const" by default and ONLY use "let" we we need to change the variable;
+        3. var variableName = value;
+                  - original variable naming;
+                  - it's a Global Variable ->
+                  -> it's like "let" but it causes a lot of problems with code, so we don't use it anymore; 
+      */
+
+      console.log(typeof variable1);
+      console.log(typeof message);
+      //"typeof" returneaza valoarea tipului de data (data type);
+
+
+      // -------------- exercises ---------------
+
+      //5a.
+      const name = 'iuly';
+      //5b.
+      console.log(`My name is: ${name}.`);
+      //5c.
+      let cost = 5 + 3 * 2 + 9;
+      //5d.
+      console.log(`Cost of food:$${cost}.`);
+      //5e.
+      const taxAdded = cost * 0.1;
+      console.log(taxAdded);
+
+      const costPlusTax = cost + taxAdded;
+      console.log(`Total cost with added 10% tax is: $${costPlusTax}.`);
+    </script>
+  </body>
+</html>

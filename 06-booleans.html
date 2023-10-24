@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booleans</title>
+  </head>
+  <body>
+    <script>
+      //Booleans are a primitive data type with only 2 values: true and false;
+      //Used for comparasion: 3 < 5;
+      console.log(3 < 5); //Output "true";
+
+      console.log(3 > 5); //Output "false";
+
+      console.log(typeof 'true'); //Output: string;
+      console.log(typeof true); //Output: boolean -> so, don't use quotes in booleans;
+
+      /* 
+        Comparison Operators:
+         1. >    greater than
+         2. <    lesser than
+         3. >=   greater or equal to
+         4. <=   lesser or equal to
+         5. ===  equal to (FOR avoiding the conversion behavior of "==" )
+            ==   equal to (tries to convert both values into the same type) -> ex
+                  console.log(5 == '5.00') // Output: true;
+         6. !==  not equal to
+            !=   not equal to (avoid, it's the same behavior like in "==")
+      */
+      console.log(5 == '5.00'); // true
+      console.log(5 === '5.00'); // false
+
+      /* Order of Operations: 
+        1. (...)
+        2. * /
+        3. + - 
+        4. Comparison Operators (lower priority than math)
+        5. Logical Operators (lower priority than comparison operator)
+      */
+
+       // 4.  Ex: in the code below, "5 - 5" will be calculated first
+       console.log(3 > 5 - 5); //Output true, because 3 > 0;
+
+
+       /*
+         if-Statements:
+          - lets us write multiple groups of code;
+          - and then decide wich code to run
+       */
+
+       //if the boolean value from " ()"is true, it will run the code from "{}", if not, it won't.  Ex:
+       
+       if (true) {
+        console.log('hello'); 
+       }  //It will run the code -> prints "hello" to the console
+
+       if (false) {
+        console.log('hello');
+       } //It won't run the code -> prints nothing to the console
+
+
+       //But if we want to run something if it's true and something else if it's false, we use "if-else" statements:
+
+       if (false) {
+        console.log('hello');
+       } else {
+         console.log('else');
+       }  //Prints "else"
+
+       if (true) {
+        console.log('hello');
+       } else {
+         console.log('else');
+       }  //Prints "hello"
+
+
+       //Practical Example: Check if someone is old enough to drive
+       const age = 16;
+       if (age >= 18) {
+        console.log('You are old enough to drive'); //This line of code it's called "Branch"
+       } else {
+         console.log('You have to wait till you\'re at least 18'); //This line of code it's called "Branch"
+       }
+
+       //In a branch, if we only have one line of code, the "{}" are optional, so this will still work:
+       const ageUnder = 16;
+       if (ageUnder >= 18) 
+          console.log('You are old enough to drive');
+          else
+          console.log('You are NOT old enough to drive');
+
+
+       /*
+
+         If-Statement Syntax Rules:
+         1. if
+         2. () <- value inside the round brackets it's named "condition", based on the code will run or not
+         3. {} <- inside curly brackets we write the code
+         4. else {} <- else statement is optional, will run if the condition is false
+
+         #So, in simpler words, if (condition) is true, run this code -> {
+          code;
+         } else, run this code -> {
+           code;
+         }
+
+       */
+
+      
+      // If we want to have more than one condition, we use "else-if" statement:
+      if (age >= 18) {
+        console.log('You can get your driving license in Europe');
+       } else if (age === 16) {
+         console.log('You can get your driving license in America');
+       } else {
+         console.log('You have to wait till you\'re at least 18'); 
+       }
+
+       /*
+       We also have Logical Operators:
+        1. AND Operator &&
+       */
+      console.log(true && false); //checks if left is true AND right is true
+                                  // for code to run, BOTH must be true
+      console.log(0.2 >= 0 && 0.2 < 1 / 3); 
+      // # Logical Operators (lower priority than comparison operator) so, it will calculate 1 / 3 first (0.3) and THEN will compare the values, so it will output "true", because 0.2 > 0 and 0.2 > 0.3
+
+      //2. OR Operator ||
+      console.log(true || false); //Checks if left side is true OR right side is true for code to run
+
+      //3. NOT Operator  ! -> Only uses one boolean value
+      console.log(!true); // it switches the value, in this case from true to false.
+
+
+      // We also have truthy and falsy values
+      // if-statements work with also numbers and string
+
+      if (5) { // <<-- '5' behaves like true, so we call it 'truthy value'
+        console.log('truthy'); // code runs
+      }
+      
+      if (0) { // <<-- '0' behaves like false, so we call it 'falsy value'
+        console.log('truthy?'); // code won't run
+      }
+
+      //Falsy Values :
+      // false - 0 - '' - NaN - undefined - null (because all this represents the nothingness)
+      // all the other values are truthy values
+
+      const cartQuantity = 5;
+
+      if(cartQuantity) {
+        console.log('cart has products');
+      } // It will run the code, because cartQuantity has value "5", so, it's truthy. -->> if it has value "0", it wouldn't run, 'cause "0' it's falsy value.
+
+       //truthy and falsy also work's with Logical Operators
+       console.log(!0); //Output true
+
+       // -----------NaN-------------
+       console.log('text' / 5); //Output NaN - it can't divide a string by a number
+
+
+       // ------------undefined-------------
+       let variable1;
+       console.log(variable1); // Output undefined, because the var it is not defined/initialized;
+       //We can only use this with "let", not with "const";
+       //For "const" we use it like this:
+       const variable2 = undefined;
+       console.log(variable2) //Output undefined;
+
+      //  const variable3; // <<-- FIX this;
+      //  console.log(variable3); //Output Uncaught SyntaxError: Missing initializer in const declaration;
+       // !!!! Because of this error, the whole code in the script won't work so comment the const;
+      
+       /*---------Shortcuts for If-Statements------------
+          1. Ternary Operator ? :
+          2. Guard Operator &&
+          3. Default Operator ||
+       */
+      
+       //----Ternary Operator ? :
+      // true ? 'truthy' : 'falsy' 
+      //If the condition is true, it will run the code before : (colon), if not, it will run the code AFTER : (colon)
+      // Advantage over if-statement -> We can save it to a variable
+
+      const result = true ? 'truthy' : 'falsy'; // <<--shortcut of this:
+      
+      let result2 = '';
+      if(result2) {
+        console.log('truthy');
+      } else {
+        console.log('falsy');
+      }
+
+
+      //----(Guard Operator) AND Operator &&
+      // Short-Circuit Evaluation -->>if the left side is false, the code stops, doesn't need to run the right side <<-- Short-Circuit Evaluation
+
+      false && console.log('hello'); // <<-- shortcut of the code down below:
+      
+      //left is false, so code run stops imediatly after
+      //we can use the value on the left, to block or Guard the code on the right
+
+      /* if (condition) {
+         console.log('hello');
+         }
+       */
+
+      // Advantage over if-statement -> We can save it to a variable:
+      // const message = false && 'hello'; // stops early
+      // console.log(message); 
+      const message2 = 5 && 'hello'; 
+      console.log(message2); //Output "hello" because in AND Operator, if left operand is truthy, it will return the right operand, otherwise, it returns the left operand.
+      const isLoggedIn = true;
+      const username = isLoggedIn && 'Mihai Viteazul';
+      console.log(username); // Output "Mihai Viteazul"
+      
+      // <<-- shortcut of the code down below:
+
+      // let message;
+
+      // if (condition) {
+      //   message = 'hello';  
+      // }
+
+
+      /* ----(Default Operator) OR Operator ||  --- is somehow like AND Operator:
+       - if left operand evaluates as truthy, stops early (short-circuit);
+       BUT
+       - if left operand evaluates as falsy, it continue and run the right operands code;
+      */
+
+      const currency = 'EUR' || 'USD';
+      console.log(currency); // Output 'EUR' because  Short-Circuit
+
+      const currency2 = undefined  || 'USD';
+      console.log(currency2); // Output 'USD' because NOT Short-Circuit
+    
+      //long-version:
+      
+      /*
+      let currency3;
+
+      if (!condition) { // Uncaught ReferenceError: condition is not defined
+        currency3 = 'USD';
+      }
+
+      */
+    </script>
+  </body>
+</html>

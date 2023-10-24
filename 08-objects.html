@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+  </head>
+  <body>
+    
+    <script>
+      /*
+
+      //Object = groups multiple values together (key-value pairs!!);
+      //       = let us USE multiple values together;
+
+      const product = {
+        name: 'socks',
+        price: 1090
+      };
+      console.log(typeof product); //object;
+      console.log(product);
+      console.log(product.name); //acces names value - socks;
+      console.log(product.price); //acces prices value - 1090;
+
+      product.name = 'cotton socks'; //we updated the value for name key;
+      console.log(product.name); //acces names value - NOW is 'cotton socks';
+
+      console.log(product.discount); //undefined - it doesn't exist;
+      product.discount = true; //we created a new property;
+      console.log(product.discount); //true;
+
+      delete product.discount; //deleted a property;
+      console.log(product.discount); //undefined;
+  
+      
+        //name          <- key
+        //socks         <- value
+        //name: 'socks' <- property
+
+      */
+
+      const product2 = {
+        name: 'shirt',
+        ['delivery-time']: '1 day',
+        rating: {  // This is called a Nested Object
+          stars: 4.5,
+          count: 87
+        },
+        fun: function function1() {
+          console.log('function inside an object');
+        }
+      };
+    
+      console.log(product2);
+      console.log(product2.name); //acces the value using Dot Notation
+      console.log(product2['name']); //acces the value using Bracket Notation
+
+      //We use Bracket Notation when we CAN'T use Dot Notation:
+      //console.log(product2.delivery-time); //Uncaught ReferenceError;
+      //We get that error because the program thinks that - is a minus and tries to do math;
+
+      console.log(product2['delivery-time']); //undefined;
+
+      /*
+      IMPORTANT: everytime we have to use:
+      - "-" in key naming, we use ['key'];
+        - if we only have a hyphen (only )in the naming, we can get rid of []:
+            -- const item {
+              'delivery-time': '3 days'
+            }
+      - a variable (   [variable1]   );
+      - a calculation (   ['delivery' + 'time']   );
+      - or anything that results in/holds a value;
+                -
+      */
+
+        console.log(product2.rating.stars); //4.5;
+        console.log(product2.fun()); //runs the function 'function inside [...]'
+              //when we save functions inside an object is called a Method
+        console.log(typeof console); //object
+        console.log(typeof console.log); //function, because 'log' is a function
+      /* 
+      Math.random()
+      Math = object;
+      random() = function
+      object + function = Method;
+      */  
+
+      /*
+      Built-in Objects:
+        - console obj
+        - math obj
+        - etc
+        - JSON
+        - localStorage
+      */
+
+      /*
+      JSON is a Built-in Object (JavaScript Object Notation):
+          - a syntax;
+          - similar to JS obj;
+          - has less features;
+          - Convert JS Object to JSON
+      */
+      
+      //JavaScript Object :
+        const jsObject = {
+          name: 'shirt',
+          'delivery-time': '1 day',
+          rating: {
+            stars: 4.5,
+            count: 87
+          },
+          fun: function function1() {
+            console.log('function inside an object');
+          }
+        }
+
+      //JSON Object: naming in "", doesn't support functions
+        const jsonObject = {
+          "name": 'shirt',
+          "delivery-time": "1 day",
+          "rating": {
+            "stars": 4.5,
+            "count": 87
+          }
+        }
+
+      //JS Object can ONLY be used in JavaScript
+      /*
+      JSON is a more universal language, can be used in almost any language
+      We use JSON when:
+          - we send data between computers;
+          - we store data.
+      */
+
+      //convert JavaScript -> JSON:
+        console.log(JSON.stringify(product2));
+        console.log(typeof JSON.stringify(product2)); //string;
+
+      //convert JSON -> JavaScript:
+        const jsonString = JSON.stringify(product2);
+        console.log(JSON.parse(jsonString));
+
+      //localStorage - we use it because values from variables are deleted after refresh
+
+      //Auto-boxing -- JS automatically wraps the string into a special object(a box) who, we know, has properties and methods:
+        console.log('hello'.length); // 5
+        console.log('hello'.toUpperCase()); // HELLO
+        console.log(3.0.toString()); // 3 -> typeof = string
+        console.log(true.toString()); // true -> typeof = string
+      
+      // - auto-boxing does NOT work with Null and undefined;
+        //null.property
+        //undefined.method()
+      
+      //Objects are references:
+        //this object1 saved a reference where the code between {} realy is
+          const object1 = {
+            message: 'hello'
+          };
+        //makes a copy of the reference that points to the object, known as Copy by Reference
+          const object2 = object1;//we're not copying the obj, we copying the reference
+
+        //even if we use "const", we can still change the values inside the object
+          object1.message = 'Good vibes!';
+          console.log(object1);
+          console.log(object2);
+
+      //We can't compare objects directly:
+        const object3 = {
+          message: 'Good vibes!'
+        };
+
+        console.log(object3 === object1); 
+          /* false, because even tho they have the same value inside,
+              " === " compares the references, wich are different
+          */
+        
+        console.log(object2 === object1);
+          //true - have the same reference, points to the same obj
+
+        console.log(object3.message === object1.message);
+          //true - the value of the "message" key is the same
+
+        //Shortcuts for Objects:
+          const object4 = {
+            message: 'Good vibes!',
+            price: 799
+          };
+          //Destructuring:
+            //const message = object4.message;
+            const { message, price } = object4; 
+              // took the properties out of the obj and saved in 2 variables each, of the respective name;
+            console.log(message); // Good vibes!
+            console.log(price); // 799
+
+          //Shorthand Property: if the key and the value have the same name, we only write it once
+            const object5 = {
+              // message: message
+              message
+            };
+            console.log(object5); // message: 'Good vibes!'
+
+          //Shorthand Method:
+            const object6 = {
+              message,
+              // method: function function1() {
+              //   console.log('method');
+              // }
+              method() {
+                console.log('method');
+              }
+            };
+            object6.method(); // method
+
+        /* 
+          In this lesson:
+            1.Objects = group key - value pairs together.
+            2.Added a score to Rock Paper Scissors.
+            3.Built-in objects(JSON, localStorage).
+            4.More detalis(null, auto-boxing, references).
+            5.Shortcuts: 
+                  - destructuring;
+                  - shorthand property;
+                  - shorthand method
+        */
+    </script>
+  </body>
+</html>

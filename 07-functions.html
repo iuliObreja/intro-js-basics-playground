@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+  </head>
+  <body>
+    <script>
+      
+      //A function let us reuse the code as many times as we want
+      function function1() {
+        console.log('hello');
+        console.log(2 + 2);
+      }
+
+      // If you want to call the function:
+
+      function1(); // Executes the code inside it
+      function1();
+
+      /*
+       Syntax rules for Functions:
+        1. The word "function" creates a new function
+        2. We choose a name for the function - our case "function1"
+        3. ()
+        4. {} and inside the {} we write the code
+        5. Calling/running/executing the function: functionname(); - in this case function1();
+
+       */
+
+
+       /*
+       Parameters:
+        - Return = gets a value OUT of a function;
+        - Parameter = puts a value INTO a function;
+       */
+
+       function calculateTax(cost, taxPercent) {
+        console.log(cost * taxPercent);
+       }
+       
+       /*
+       function calculateTax(cost) - we say "This function takes a parameter";
+       function calculateTax(5)    - we say "This function takes a number";
+       */
+
+       //When we put a value into the function, like this down below:
+       //We call it "Passing a value into the function"
+       calculateTax(2300, 0.2);
+       calculateTax(4364, 2.4);
+    </script>
+  </body>
+</html>
